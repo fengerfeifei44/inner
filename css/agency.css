@@ -1,0 +1,159 @@
+.clear:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.main{
+    margin: 10px 30px 30px 30px;
+}
+.main h1{
+    text-align: center;
+    font-size: 22px;
+    color: #1a598c;
+   /* color:#3e4a60;*/
+}
+
+.main h3{
+    margin: inherit;
+    color:#1a598c;
+    line-height: 28px;
+    font-size: 14px;
+    border-bottom: 1px dashed #1a598c;
+
+}
+ h3{
+    margin: 20px 0  30px 0!important;
+}
+
+.main h3 span{
+    display: inline-block;
+    background: #60728c;
+    color: #fff;
+    width: 150px;
+    text-align: center;
+    border-top-left-radius: 20px;
+
+}
+#edit{
+    width: 90%;
+    min-height: 100px;
+}
+
+.group{
+    margin-top: 40px;
+}
+.btn_wrap{
+    margin: 0;
+    /*text-align: center;*/
+}
+.btn_wrap.mar_left{
+    margin-top: 20px;
+    text-align: left;
+}
+ .btn{
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+    background:#2b9dfa ;
+    background: rgb(26, 147, 211);
+
+     /*background: #ccc;*/
+    box-shadow: 1px 1px 5px rgba(0,0,0,.2);
+    cursor: pointer;
+}
+ .text_group{
+     font-size: 14px;
+     margin-top: 15px;
+ }
+.group .btn.delete{
+    background:#f99506;
+}
+.add_btn{
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    font-size: 12px;
+    padding: 3px 6px;
+    background: #25a994;
+}
+/*以上为公共样式*/
+/*智能问诊管理页面*/
+.wrap{
+    float: left;
+    margin-top: 10px;
+}
+.wrap.department{
+    float: inherit;
+}
+.wrap .title{
+    text-align: center;
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+
+}
+.wrap .title>span{
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    padding: 3px 5px;
+}
+.hotline{
+    margin-top: 25px;
+    color: rgb(26, 147, 211) ;
+    font-weight: 700;
+}
+.line{
+    float: left;
+    margin: 75px 20px 0 20px;
+    width: 1px;
+    height: 270px;
+    border-left: 1px dashed #dcdcdc;
+    background: #fff;
+}
+.float{
+    float: left;
+}
+.float p{
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    color:#1a598c ;
+    line-height: 40px;
+}
+.left_con{
+    padding: 10px;
+    border: 1px solid #1a598c;
+    width: 180px;
+    height: 250px;
+    overflow: auto;
+
+}
+.wrap .float span{
+    cursor: pointer;
+    font-size: 12px;
+    color: #797979;
+    display: block;
+    line-height: 24px;
+}
+.middle{
+
+    float: left;
+    margin:100px  20px 0 20px;
+}
+.middle span{
+    cursor: pointer;
+    display: block;
+    border: 1px solid #dcdcdc;
+    text-align: center;
+    padding: 5px;
+}
+/*新增用户*/
+#add_users select,#add_users input[type="text"],#add_users option{
+    width: 150px;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 20px;
+}

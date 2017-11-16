@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增链接</title>
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/froala_editor.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/agency.css">
+</head>
+<body>
+<div class="main">
+    <div class=" group">
+        <h3><span>新建诊所</span></h3>
+        <div class="text_group">
+            <label for="palte_name">标题：</label>
+            <input type="text" id="palte_name" name="palte_name">
+        </div>
+
+        <div class="text_group">
+            <p>内容</p>
+            <div id="edit"></div>
+        </div>
+    </div>
+    <p class="btn_wrap mar_left"><span class="btn">提交</span></p>
+</div>
+<script src="js/libs/jquery-1.11.1.min.js"></script>
+<script src="js/froala_editor.min.js"></script>
+<!--[if lt IE 9]>
+<script src="../js/froala_editor_ie8.min.js"></script>
+<![endif]-->
+<script src="js/plugins/tables.min.js"></script>
+<script src="js/plugins/lists.min.js"></script>
+<script src="js/plugins/colors.min.js"></script>
+<script src="js/plugins/media_manager.min.js"></script>
+<script src="js/plugins/font_family.min.js"></script>
+<script src="js/plugins/font_size.min.js"></script>
+<script src="js/plugins/block_styles.min.js"></script>
+<script src="js/plugins/video.min.js"></script>
+
+<script>
+    $(function(){
+        $('#edit').editable({inlineMode: false, alwaysBlank: true})
+    });
+</script>
+</body>
+</html>

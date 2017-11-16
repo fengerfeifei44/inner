@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/froala_editor.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/agency.css">
+</head>
+<!--193009-->
+<body>
+<div class="main" id="agency">
+  <!--<h1>惠每健康管理中心</h1>-->
+  <div class=" group">
+  <h3><span>机构信息</span></h3>
+    <div id='edit'></div>
+   <p class="btn_wrap"> <span class="btn">保存</span></p>
+  </div>
+  <div class="upload group">
+    <h3><span>上传logo</span></h3>
+     <p>
+       <input type="file">
+     </p>
+    <p class="btn_wrap"><span class="btn">保存</span></p>
+  </div>
+  <div class="common_link group">
+    <h3><span>常用链接</span></h3>
+    <div class="add_btn">+新增链接</div>
+   <p>
+      <label for="name">名称</label>
+      <input type="text" id="name" name="name">
+     <label for="address">地址</label>
+      <input type="text" id="address" name="address">
+     <span class="btn">保存</span>
+     <span  class="btn delete">删除</span>
+    </p>
+   <!-- <p>
+      <label for="name1">名称</label>
+      <input type="text" id="name1" name="name1">
+      <label for="address1">地址</label>
+      <input type="text" id="address1" name="address1">
+      <span class="btn">保存</span>
+      <span  class="btn delete">删除</span>
+    </p>-->
+  </div>
+</div>
+
+
+  <script src="js/libs/jquery-1.11.1.min.js"></script>
+  <script src="js/froala_editor.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../js/froala_editor_ie8.min.js"></script>
+  <![endif]-->
+  <script src="js/plugins/tables.min.js"></script>
+  <script src="js/plugins/lists.min.js"></script>
+  <script src="js/plugins/colors.min.js"></script>
+  <script src="js/plugins/media_manager.min.js"></script>
+  <script src="js/plugins/font_family.min.js"></script>
+  <script src="js/plugins/font_size.min.js"></script>
+  <script src="js/plugins/block_styles.min.js"></script>
+  <script src="js/plugins/video.min.js"></script>
+
+  <script>
+      $(function(){
+          $('#edit').editable({inlineMode: false, alwaysBlank: true})
+      });
+  </script>
+</body>
+</html>

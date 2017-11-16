@@ -1,0 +1,166 @@
+body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, table, hr, main, form {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font:0.24rem  'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, b, strong {
+    font-weight: 500;
+}
+
+i, em {
+    font-style: normal;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+img {
+    vertical-align: top;
+    border: none;
+}
+img, input, select, textarea {
+    vertical-align: middle;
+    outline: none;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+.clear {
+    zoom: 1;
+}
+.clear:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+/*以上为重置样式*/
+body{
+    background: #ebeef0;
+    height: 100%;
+}
+.head{
+    padding: 0 20px;
+    height: 50px;
+    color: #fff;
+    background: #000;
+}
+.head h1{
+
+    float: left;
+ font-size: 24px;
+}
+.head h1 span{
+    display: block;
+    font-size: 11px;
+}
+.head h1 span.china{
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 24px;
+}
+.head .nav{
+    float: right;
+    line-height: 50px;
+}
+.head .nav span{
+    font-size: 14px;
+    margin-left: 15px;
+}
+/*以上为head样式*/
+.main{
+   height: 100%;
+}
+.main .left{
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 200px;
+    background: #435063;
+}
+.main .left .arrow{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    padding-right: 10px;
+    width: 100%;
+    text-align: right;
+    color: #435063;
+    font-size: 16px;
+    height: 36px;
+    line-height: 36px;
+    background: rgba(0,0,0,.2);
+}
+.main .left .arrow>span{
+    cursor: pointer;
+}
+.main .left ul{
+    margin: 20px  0 0 0;
+    font-size: 14px;
+    line-height: 40px;
+    color: #92a5b6;
+}
+.main .left ul>li{
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+.main .left ul>li ol{
+    display: none;
+    padding-left: 25px;
+
+}
+.main .left ul>li ol li{
+    line-height: 36px;
+    font-size: 12px;
+}
+.main .left ul>li:hover{
+    background: #333;
+    color: #fff;
+    transition: 0.1s;
+}
+.main .left ul>li span{
+    padding-right: 15px;
+}
+.main .right{
+  /*  float: right;*/
+    margin-left: 200px;
+}
+.main .right .top{
+    padding-left: 20px;
+    height: 40px;
+    line-height: 40px;
+
+    background: #fff;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.1);
+}
+.main .right .top .order_one{
+    color: #3e4a60;
+    font-size: 18px;
+}
+.main .right .top .order_img{
+    font-size: 14px;
+}
+.main .right .top span{
+    padding-left: 15px;
+    font-size: 12px;
+    color: #797979;
+}
+.main .right .box{
+    overflow: hidden;
+    position: relative;
+    margin:15px 15px 0 15px;
+    height: 500px;
+    background: #fff;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.1);
+}
