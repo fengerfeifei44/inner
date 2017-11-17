@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/froala_editor.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/agency.css">
+</head>
+<!--193009-->
+<body id="agency" >
+<div class="main clear" >
+  <!--<h1>惠每健康管理中心</h1>-->
+   <!-- <div id="edit"></div>-->
+   <div class="content">
+       <div class="agency_left">
+           <p class="left_one" data-num="one">有效期</p>
+           <p class="left_two" data-num="two">机构信息</p>
+           <p  class="left_three" data-num="three">上传logo</p>
+           <p  class="left_four on" data-num="four">常用链接</p>
+
+       </div>
+       <div class="agency_right">
+           <div class="validity  right_one"  data-num="one">有效期</div>
+           <div class="agen_information right_two"  data-num="two">
+               <textarea id="edit"></textarea>
+               <p class="btn_wrap btn_other"><span class="btn">保存</span></p>
+           </div>
+           <div class="right_three" data-num="three">
+               <input id="file_upload" type="file" />
+               <div class="image_container">
+                   <img id="preview" >
+               </div>
+               <p class="btn_wrap btn_other"><span class="btn">保存</span></p>
+           </div>
+           <div  class="right_four" data-num="four" style="display: block">
+               <div class="add_btn">+新增链接</div>
+               <p>
+                   <label for="name">名称</label>
+                   <input type="text" id="name" name="name">
+                   <label for="address">地址</label>
+                   <input type="text" id="address" name="address">
+                   <span class="btn">保存</span>
+                   <span  class="btn delete">删除</span>
+               </p>
+           </div>
+       </div>
+   </div>
+
+</div>
+
+
+  <script src="js/libs/jquery-1.11.1.min.js"></script>
+  <script src="js/froala_editor.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../js/froala_editor_ie8.min.js"></script>
+  <![endif]-->
+  <script src="js/plugins/tables.min.js"></script>
+  <script src="js/plugins/lists.min.js"></script>
+  <script src="js/plugins/colors.min.js"></script>
+  <script src="js/plugins/media_manager.min.js"></script>
+  <script src="js/plugins/font_family.min.js"></script>
+  <script src="js/plugins/font_size.min.js"></script>
+  <script src="js/plugins/block_styles.min.js"></script>
+  <script src="js/plugins/video.min.js"></script>
+<script>
+    $(function(){
+        $('#edit').editable({inlineMode: false, alwaysBlank: true})
+    });
+    var height=$(window).height();
+    var boxwrapH=(height-60)+"px";
+    $(".agency_right").css("minHeight",boxwrapH);
+    $(".agency_left p.left_one").click(function () {
+        $(this).addClass("on").siblings().removeClass("on");
+        $(".right_one").fadeIn().siblings().fadeOut();
+
+    })
+    $(".agency_left p.left_two").click(function () {
+        $(this).addClass("on").siblings().removeClass("on");
+        $(".right_two").fadeIn().siblings().fadeOut();
+
+    })
+    $(".agency_left p.left_three").click(function () {
+        $(this).addClass("on").siblings().removeClass("on");
+        $(".right_three").fadeIn().siblings().fadeOut();
+
+    })
+    $(".agency_left p.left_four").click(function () {
+        $(this).addClass("on").siblings().removeClass("on");
+        $(".right_four").fadeIn().siblings().fadeOut();
+
+    })
+    $(function() {
+        $("#file_upload").change(function() {
+            var $file = $(this);
+            var fileObj = $file[0];
+            var windowURL = window.URL || window.webkitURL;
+            var dataURL;
+            var $img = $("#preview");
+
+            if(fileObj && fileObj.files && fileObj.files[0]){
+                dataURL = windowURL.createObjectURL(fileObj.files[0]);
+                $img.attr('src',dataURL);
+            }else{
+                dataURL = $file.val();
+                var imgObj = document.getElementById("preview");
+// 两个坑:
+// 1、在设置filter属性时，元素必须已经存在在DOM树中，动态创建的Node，也需要在设置属性前加入到DOM中，先设置属性在加入，无效；
+// 2、src属性需要像下面的方式添加，上面的两种方式添加，无效；
+                imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+
+            }
+        });
+    });
+</script>
+</body>
+</html>

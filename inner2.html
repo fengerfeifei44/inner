@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>User列表</title>
+    <link href="http://amc.huimeicare.com/iamcadmin/resources/css/jquery.dataTables.min.css" rel="stylesheet"
+          type="text/css">
+    <link href="http://amc.huimeicare.com/iamcadmin/resources/css/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="http://amc.huimeicare.com/iamcadmin/resources/zdialog/css.css" rel="stylesheet" type="text/css">
+    <link href="http://amc.huimeicare.com/iamcadmin/resources/css/css.css" rel="stylesheet" type="text/css">
+    <link href="http://amc.huimeicare.com/iamcadmin/resources/select/jquery.searchableSelect.css" rel="stylesheet">
+    <script src="http://amc.huimeicare.com/iamcadmin/resources/js/jquery-1.11.3.min.js"></script>
+    <script src="http://amc.huimeicare.com/iamcadmin/resources/js/jquery-ui.js"></script>
+    <script type="text/javascript"
+            src="http://amc.huimeicare.com/iamcadmin/resources/select/jquery.searchableSelect.js"></script>
+    <script src="http://amc.huimeicare.com/iamcadmin/resources/js/jquery.dataTables.min.js"></script>
+    <script language="javascript"
+            src="http://amc.huimeicare.com/iamcadmin/resources/My97DatePicker/WdatePicker.js"></script>
+    <link href="http://amc.huimeicare.com/iamcadmin/resources/My97DatePicker/skin/WdatePicker.css" rel="stylesheet"
+          type="text/css">
+    <style type="text/css">
+        .center {
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        th {
+            white-space: nowrap
+        }
+
+    </style>
+    <link rel="stylesheet" href="css/add2.css">
+    <script> var contextPath = "/amcAdmin"</script>
+
+</head>
+
+<body bgcolor="#EEEEEE">
+<form id="form">
+    <div id="mydatatable_wrapper" class="dataTables_wrapper no-footer" style="position: inherit !important;">
+      <!--  <div class="dataTables_length" id="mydatatable_length"><label>显示 <select name="mydatatable_length"
+                                                                                 aria-controls="mydatatable" class="">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select> 条</label></div>-->
+        <div id="mydatatable_processing" class="dataTables_processing" style="display: none;">正在获取数据，请稍后...</div>
+
+           <div id="box_wrap" >
+               <div id="search">
+                   <div class="group">
+                       <label for="loginname">账号</label>
+                       <input type="text" name="loginname" id="loginname">
+                   </div>
+                   <div class="group">
+                       <label for="username">姓名</label>
+                       <input type="text" name="username" id="username">
+                   </div>
+                   <div class="group">
+                       <label for="custnname">账号</label>
+                       <select type="text" name="custnname" id="custnname">
+                           <option value="">请选择</option>
+                           <option value="">梅奥诊所</option>
+                           <option value="">惠每诊所</option>
+                       </select>
+                   </div>
+                   <div class="group">
+                       <span class="sear">查询</span>
+                   </div>
+                   <div class="right">
+
+                       <span class="add">+ 新增</span>
+                   </div>
+
+               </div>
+               <table style="font-size: 12px; width: 100%;" class="display dataTable no-footer" width="100%" border="0"
+                      cellpadding="5" cellspacing="1" id="mydatatable" role="grid" aria-describedby="mydatatable_info">
+                   <thead >
+                   <!--<tr class="tablehead" bgcolor="#f8f8f8" role="row">
+
+                       <th rowspan="1" colspan="1">
+                           <label for="loginname">账号</label>
+                           <input type="text" name="loginname" id="loginname" size="10"></th>
+                       <th rowspan="1" colspan="1">
+                           <label for="username">姓名</label>
+                           <input type="text" name="username" id="username" size="10"></th>
+                       <th rowspan="1" colspan="1">
+                           <label for="custnname">诊所</label>
+                           <select name="custnname" id="custnname" class="select" style="display: none;">
+                               <option value="">请选择</option>
+
+                               <option value="181">0AA65C80(1234)</option>
+
+                               <option value="97">7439DAA4(Avic)</option>
+
+                               <option value="99">746FEFBC(CCT)</option>
+
+                               <option value="139">B1568438(delaware)</option>
+
+                               <option value="220">56BED90C(emtest)</option>
+
+                               <option value="201">3B552DD3(Haoyiseng )</option>
+
+                               <option value="117">82E388EF(Hillhouse)</option>
+
+                               <option value="41">10161018(HM Best)</option>
+
+                               <option value="49">HMBEST85(HMBest)</option>
+
+                               <option value="51">HMHMSICP(HMHMS)</option>
+
+                               <option value="205">3B55B2E5(HYS)</option>
+
+                               <option value="71">73DB98DF(ibm)</option>
+
+                               <option value="137">9CC77B57(Mayo Clinic GBS)</option>
+
+                               <option value="185">quwei123(quwei)</option>
+
+                               <option value="85">73E0C155(Renming )</option>
+
+                               <option value="221">56C9927F(utest)</option>
+
+                               <option value="233">6C663B5A(utest)</option>
+
+                               <option value="107">766D3A0E(WuXi AppTec)</option>
+
+                               <option value="105">756F691C(上海医明康德医疗健康科技有限公司)</option>
+
+                               <option value="125">86E27290(上海泰福盛世健康咨询有限公司)</option>
+
+                               <option value="93">7403FF6B(中信)</option>
+
+                               <option value="191">C5108719(中国中医科学院)</option>
+
+                               <option value="157">382E198A(中天空港)</option>
+
+                               <option value="141">B156B1AD(中日友好医院)</option>
+
+                               <option value="89">7402AC5C(中航医疗)</option>
+
+                               <option value="91">7402FBAD(中航医疗)</option>
+
+                               <option value="111">78B8D19A(中铁二局集团中心医院)</option>
+
+                               <option value="87">73E1DCBB(云南省肿瘤医院)</option>
+
+                               <option value="211">EA5A5743(京津冀联合医院)</option>
+
+                               <option value="183">2F3BC365(京煤医院_江苏振邦智慧城市信息系统有限公司)</option>
+
+                               <option value="161">C12C6088(仁大夫诊所)</option>
+
+                               <option value="95">74047F7C(北京世纪坛医院)</option>
+
+                               <option value="169">6C03C850(北京华普亿方有限公司)</option>
+
+                               <option value="65">73D58D84(北京大学)</option>
+
+                               <option value="209">ACD5C8E5(北京大学第一医院)</option>
+
+                               <option value="155">382DEE5F(北京市监狱管理局中心医院)</option>
+
+                               <option value="79">73DE2329(北京新世纪医疗网络)</option>
+
+                               <option value="147">21B78F79(北京标联银泰)</option>
+
+                               <option value="189">A5C028DA(北大医院)</option>
+
+                               <option value="215">EA5F3A45(医院)</option>
+
+                               <option value="67">73D72BBB(华医国际健康管理有限公司)</option>
+
+                               <option value="83">73E035B4(南京云商天下信息技术有限公司)</option>
+
+                               <option value="77">73DDEF80(南宁瀚嘉医疗科技有限公司)</option>
+
+                               <option value="75">73DDA73C(卫恩诊所)</option>
+
+                               <option value="129">86E2EE8E(台州恩泽软件公司)</option>
+
+                               <option value="59">73D25ECB(四川省医院)</option>
+
+                               <option value="207">875BE0EE(复星星健)</option>
+
+                               <option value="159">C12C0D43(天水皮肤病专科医院)</option>
+
+                               <option value="143">B165B5EC(好医生)</option>
+
+                               <option value="175">9EAF837A(好医生)</option>
+
+                               <option value="179">F62C827D(好医生)</option>
+
+                               <option value="153">382D7FC3(好医生医学教育中心)</option>
+
+                               <option value="173">9EAF18C9(好医生医疗集团)</option>
+
+                               <option value="151">382D12CE(好医生培训中心)</option>
+
+                               <option value="63">73D4AE1E(安联保险)</option>
+
+                               <option value="203">3B559B58(康码)</option>
+
+                               <option value="47">1339163716(惠每)</option>
+
+                               <option value="57">2A95236D(惠每)</option>
+
+                               <option value="177">EBF27115(惠每)</option>
+
+                               <option value="1">55852265(惠每健康管理中心)</option>
+
+                               <option value="45">1339163715(惠每医疗)</option>
+
+                               <option value="55">2A835594(惠每医疗)</option>
+
+                               <option value="145">218F5054(惠每医疗)</option>
+
+                               <option value="163">C12CAD44(惠每医疗)</option>
+
+                               <option value="199">F2FDC1EF(惠每医疗)</option>
+
+                               <option value="232">5F183374(惠每医疗)</option>
+
+                               <option value="171">6C041FC8(惠每华康)</option>
+
+                               <option value="53">JXUHMB(惠每极致)</option>
+
+                               <option value="187">HMBESTGY(惠每极致)</option>
+
+                               <option value="195">C51709E1(惠每极致)</option>
+
+                               <option value="2">12348765(惠每科技)</option>
+
+                               <option value="121">83C23526(成都中美爱康健康咨询有限公司)</option>
+
+                               <option value="133">87CCD51F(政府部门)</option>
+
+                               <option value="119">82E4D8E0(沈阳大东东望医院)</option>
+
+                               <option value="149">382CC859(河南省人民医院)</option>
+
+                               <option value="135">922110B4(河南省农发行)</option>
+
+                               <option value="127">86E2B8D7(泰福盛世)</option>
+
+                               <option value="115">7C0365CF(洪城驾校)</option>
+
+                               <option value="225">cs12345678(测试)</option>
+
+                               <option value="227">cs1026(测试1026)</option>
+
+                               <option value="217">55440FC0(测试20170906)</option>
+
+                               <option value="218">56021A1E(测试20170907)</option>
+
+                               <option value="219">56A62404(测试20170908)</option>
+
+                               <option value="222">59F519B7(测试20170911)</option>
+
+                               <option value="223">5A3F3C75(测试20170913)</option>
+
+                               <option value="224">5A4B413C(测试20170914)</option>
+
+                               <option value="69">73DB215C(济钢)</option>
+
+                               <option value="73">73DCF806(浙江大学)</option>
+
+                               <option value="131">87CC3789(深圳市仁康医院)</option>
+
+                               <option value="61">73D37F4F(深圳市宝安区中心医院)</option>
+
+                               <option value="109">778F742B(湖南省中医药研究院附属医院肿瘤放疗科)</option>
+
+                               <option value="213">EA5B705C(瑞而士)</option>
+
+                               <option value="123">86E23891(百度)</option>
+
+                               <option value="193">C51171C3(益体康北京)</option>
+
+                               <option value="113">795730F7(科技公司)</option>
+
+                               <option value="103">747D7245(药明康德)</option>
+
+                               <option value="101">747C914B(莱佛士医疗)</option>
+
+                               <option value="81">73DF47E0(西安国际健康云中心有限公司)</option>
+
+                               <option value="226">nak170915(诺安康)</option>
+
+                               <option value="167">E06A9AEA(达实智能)</option>
+
+                               <option value="43">LIJINYI(锦易健康)</option>
+
+                               <option value="197">F2FD8161(首都医科大学附属北京中医医院)</option>
+
+                               <option value="37">31400791(高瓴)</option>
+
+                           </select>
+                          &lt;!&ndash; <div tabindex="0" class="searchable-select">&lt;!&ndash;<span class="searchable-select-caret"></span>&ndash;&gt;
+                             &lt;!&ndash;  <div class="searchable-select-holder">请选择</div>&ndash;&gt;
+                               <div class="searchable-select-dropdown searchable-select-hide"><input type="text"
+                                                                                                     class="searchable-select-input">
+                                   <div class="searchable-scroll">
+                                       <div class="searchable-has-privious searchable-select-hide">...</div>
+                                       <div class="searchable-select-items">
+                                           <div class="searchable-select-item selected hover" data-value="">请选择</div>
+                                           <div class="searchable-select-item" data-value="181">0AA65C80(1234)</div>
+                                           <div class="searchable-select-item" data-value="97">7439DAA4(Avic)</div>
+                                           <div class="searchable-select-item" data-value="99">746FEFBC(CCT)</div>
+                                           <div class="searchable-select-item" data-value="139">B1568438(delaware)</div>
+                                           <div class="searchable-select-item" data-value="220">56BED90C(emtest)</div>
+                                           <div class="searchable-select-item" data-value="201">3B552DD3(Haoyiseng )</div>
+                                           <div class="searchable-select-item" data-value="117">82E388EF(Hillhouse)</div>
+                                           <div class="searchable-select-item" data-value="41">10161018(HM Best)</div>
+                                           <div class="searchable-select-item" data-value="49">HMBEST85(HMBest)</div>
+                                           <div class="searchable-select-item" data-value="51">HMHMSICP(HMHMS)</div>
+                                           <div class="searchable-select-item" data-value="205">3B55B2E5(HYS)</div>
+                                           <div class="searchable-select-item" data-value="71">73DB98DF(ibm)</div>
+                                           <div class="searchable-select-item" data-value="137">9CC77B57(Mayo Clinic GBS)</div>
+                                           <div class="searchable-select-item" data-value="185">quwei123(quwei)</div>
+                                           <div class="searchable-select-item" data-value="85">73E0C155(Renming )</div>
+                                           <div class="searchable-select-item" data-value="221">56C9927F(utest)</div>
+                                           <div class="searchable-select-item" data-value="233">6C663B5A(utest)</div>
+                                           <div class="searchable-select-item" data-value="107">766D3A0E(WuXi AppTec)</div>
+                                           <div class="searchable-select-item" data-value="105">756F691C(上海医明康德医疗健康科技有限公司)
+                                           </div>
+                                           <div class="searchable-select-item" data-value="125">86E27290(上海泰福盛世健康咨询有限公司)</div>
+                                           <div class="searchable-select-item" data-value="93">7403FF6B(中信)</div>
+                                           <div class="searchable-select-item" data-value="191">C5108719(中国中医科学院)</div>
+                                           <div class="searchable-select-item" data-value="157">382E198A(中天空港)</div>
+                                           <div class="searchable-select-item" data-value="141">B156B1AD(中日友好医院)</div>
+                                           <div class="searchable-select-item" data-value="89">7402AC5C(中航医疗)</div>
+                                           <div class="searchable-select-item" data-value="91">7402FBAD(中航医疗)</div>
+                                           <div class="searchable-select-item" data-value="111">78B8D19A(中铁二局集团中心医院)</div>
+                                           <div class="searchable-select-item" data-value="87">73E1DCBB(云南省肿瘤医院)</div>
+                                           <div class="searchable-select-item" data-value="211">EA5A5743(京津冀联合医院)</div>
+                                           <div class="searchable-select-item" data-value="183">
+                                               2F3BC365(京煤医院_江苏振邦智慧城市信息系统有限公司)
+                                           </div>
+                                           <div class="searchable-select-item" data-value="161">C12C6088(仁大夫诊所)</div>
+                                           <div class="searchable-select-item" data-value="95">74047F7C(北京世纪坛医院)</div>
+                                           <div class="searchable-select-item" data-value="169">6C03C850(北京华普亿方有限公司)</div>
+                                           <div class="searchable-select-item" data-value="65">73D58D84(北京大学)</div>
+                                           <div class="searchable-select-item" data-value="209">ACD5C8E5(北京大学第一医院)</div>
+                                           <div class="searchable-select-item" data-value="155">382DEE5F(北京市监狱管理局中心医院)</div>
+                                           <div class="searchable-select-item" data-value="79">73DE2329(北京新世纪医疗网络)</div>
+                                           <div class="searchable-select-item" data-value="147">21B78F79(北京标联银泰)</div>
+                                           <div class="searchable-select-item" data-value="189">A5C028DA(北大医院)</div>
+                                           <div class="searchable-select-item" data-value="215">EA5F3A45(医院)</div>
+                                           <div class="searchable-select-item" data-value="67">73D72BBB(华医国际健康管理有限公司)</div>
+                                           <div class="searchable-select-item" data-value="83">73E035B4(南京云商天下信息技术有限公司)</div>
+                                           <div class="searchable-select-item" data-value="77">73DDEF80(南宁瀚嘉医疗科技有限公司)</div>
+                                           <div class="searchable-select-item" data-value="75">73DDA73C(卫恩诊所)</div>
+                                           <div class="searchable-select-item" data-value="129">86E2EE8E(台州恩泽软件公司)</div>
+                                           <div class="searchable-select-item" data-value="59">73D25ECB(四川省医院)</div>
+                                           <div class="searchable-select-item" data-value="207">875BE0EE(复星星健)</div>
+                                           <div class="searchable-select-item" data-value="159">C12C0D43(天水皮肤病专科医院)</div>
+                                           <div class="searchable-select-item" data-value="143">B165B5EC(好医生)</div>
+                                           <div class="searchable-select-item" data-value="175">9EAF837A(好医生)</div>
+                                           <div class="searchable-select-item" data-value="179">F62C827D(好医生)</div>
+                                           <div class="searchable-select-item" data-value="153">382D7FC3(好医生医学教育中心)</div>
+                                           <div class="searchable-select-item" data-value="173">9EAF18C9(好医生医疗集团)</div>
+                                           <div class="searchable-select-item" data-value="151">382D12CE(好医生培训中心)</div>
+                                           <div class="searchable-select-item" data-value="63">73D4AE1E(安联保险)</div>
+                                           <div class="searchable-select-item" data-value="203">3B559B58(康码)</div>
+                                           <div class="searchable-select-item" data-value="47">1339163716(惠每)</div>
+                                           <div class="searchable-select-item" data-value="57">2A95236D(惠每)</div>
+                                           <div class="searchable-select-item" data-value="177">EBF27115(惠每)</div>
+                                           <div class="searchable-select-item" data-value="1">55852265(惠每健康管理中心)</div>
+                                           <div class="searchable-select-item" data-value="45">1339163715(惠每医疗)</div>
+                                           <div class="searchable-select-item" data-value="55">2A835594(惠每医疗)</div>
+                                           <div class="searchable-select-item" data-value="145">218F5054(惠每医疗)</div>
+                                           <div class="searchable-select-item" data-value="163">C12CAD44(惠每医疗)</div>
+                                           <div class="searchable-select-item" data-value="199">F2FDC1EF(惠每医疗)</div>
+                                           <div class="searchable-select-item" data-value="232">5F183374(惠每医疗)</div>
+                                           <div class="searchable-select-item" data-value="171">6C041FC8(惠每华康)</div>
+                                           <div class="searchable-select-item" data-value="53">JXUHMB(惠每极致)</div>
+                                           <div class="searchable-select-item" data-value="187">HMBESTGY(惠每极致)</div>
+                                           <div class="searchable-select-item" data-value="195">C51709E1(惠每极致)</div>
+                                           <div class="searchable-select-item" data-value="2">12348765(惠每科技)</div>
+                                           <div class="searchable-select-item" data-value="121">83C23526(成都中美爱康健康咨询有限公司)</div>
+                                           <div class="searchable-select-item" data-value="133">87CCD51F(政府部门)</div>
+                                           <div class="searchable-select-item" data-value="119">82E4D8E0(沈阳大东东望医院)</div>
+                                           <div class="searchable-select-item" data-value="149">382CC859(河南省人民医院)</div>
+                                           <div class="searchable-select-item" data-value="135">922110B4(河南省农发行)</div>
+                                           <div class="searchable-select-item" data-value="127">86E2B8D7(泰福盛世)</div>
+                                           <div class="searchable-select-item" data-value="115">7C0365CF(洪城驾校)</div>
+                                           <div class="searchable-select-item" data-value="225">cs12345678(测试)</div>
+                                           <div class="searchable-select-item" data-value="227">cs1026(测试1026)</div>
+                                           <div class="searchable-select-item" data-value="217">55440FC0(测试20170906)</div>
+                                           <div class="searchable-select-item" data-value="218">56021A1E(测试20170907)</div>
+                                           <div class="searchable-select-item" data-value="219">56A62404(测试20170908)</div>
+                                           <div class="searchable-select-item" data-value="222">59F519B7(测试20170911)</div>
+                                           <div class="searchable-select-item" data-value="223">5A3F3C75(测试20170913)</div>
+                                           <div class="searchable-select-item" data-value="224">5A4B413C(测试20170914)</div>
+                                           <div class="searchable-select-item" data-value="69">73DB215C(济钢)</div>
+                                           <div class="searchable-select-item" data-value="73">73DCF806(浙江大学)</div>
+                                           <div class="searchable-select-item" data-value="131">87CC3789(深圳市仁康医院)</div>
+                                           <div class="searchable-select-item" data-value="61">73D37F4F(深圳市宝安区中心医院)</div>
+                                           <div class="searchable-select-item" data-value="109">778F742B(湖南省中医药研究院附属医院肿瘤放疗科)
+                                           </div>
+                                           <div class="searchable-select-item" data-value="213">EA5B705C(瑞而士)</div>
+                                           <div class="searchable-select-item" data-value="123">86E23891(百度)</div>
+                                           <div class="searchable-select-item" data-value="193">C51171C3(益体康北京)</div>
+                                           <div class="searchable-select-item" data-value="113">795730F7(科技公司)</div>
+                                           <div class="searchable-select-item" data-value="103">747D7245(药明康德)</div>
+                                           <div class="searchable-select-item" data-value="101">747C914B(莱佛士医疗)</div>
+                                           <div class="searchable-select-item" data-value="81">73DF47E0(西安国际健康云中心有限公司)</div>
+                                           <div class="searchable-select-item" data-value="226">nak170915(诺安康)</div>
+                                           <div class="searchable-select-item" data-value="167">E06A9AEA(达实智能)</div>
+                                           <div class="searchable-select-item" data-value="43">LIJINYI(锦易健康)</div>
+                                           <div class="searchable-select-item" data-value="197">F2FD8161(首都医科大学附属北京中医医院)</div>
+                                           <div class="searchable-select-item" data-value="37">31400791(高瓴)</div>
+                                       </div>
+                                       <div class="searchable-has-next searchable-select-hide">...</div>
+                                   </div>
+                               </div>
+                           </div>&ndash;&gt;
+                       </th>
+                       <th rowspan="1" colspan="1"><input type="button" id="searchButton" value="查询"> <a href="hmuserAdd.do"
+                                                                                                         target="_blank">新建</a>
+                       </th>
+                   </tr>-->
+
+                   <tr class="tablehead" bgcolor="#1a598c" role="row">
+                       <th width="100" class="sorting_asc" tabindex="0" aria-controls="mydatatable" rowspan="1" colspan="1"
+                           aria-sort="ascending" aria-label="账号: activate to sort column descending" style="width: 100px;">账号
+                       </th>
+                       <th width="100" class="sorting" tabindex="0" aria-controls="mydatatable" rowspan="1" colspan="1"
+                           aria-label="姓名: activate to sort column ascending" style="width: 100px;">姓名
+                       </th>
+                       <th width="100" class="sorting" tabindex="0" aria-controls="mydatatable" rowspan="1" colspan="1"
+                           aria-label="诊所: activate to sort column ascending" style="width: 200px;">诊所
+                       </th>
+                       <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="操作" style="width: 100%">操作</th>
+                   </tr>
+                   </thead>
+
+
+
+                   <tbody style="margin-top: 100px">
+                   <tr role="row" class="odd">
+                       <td class="sorting_1">332170158</td>
+                       <td>刘洋</td>
+                       <td>6C03C850(北京华普亿方有限公司)</td>
+                       <td><a href="hmuserEdit.do?id=141" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('332170158')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="even">
+                       <td class="sorting_1">90105136</td>
+                       <td>龚鹏媛</td>
+                       <td>EA5F3A45(医院)</td>
+                       <td><a href="hmuserEdit.do?id=197" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('90105136')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="odd">
+                       <td class="sorting_1">admin</td>
+                       <td>admin</td>
+                       <td>55852265(惠每健康管理中心)</td>
+                       <td><a href="hmuserEdit.do?id=1" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                   </tr>
+                   <tr role="row" class="even">
+                       <td class="sorting_1">baoji</td>
+                       <td>李琨</td>
+                       <td>2A95236D(惠每)</td>
+                       <td><a href="hmuserEdit.do?id=27" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('baoji')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="odd">
+                       <td class="sorting_1">beidayiyuan</td>
+                       <td>北</td>
+                       <td>ACD5C8E5(北京大学第一医院)</td>
+                       <td><a href="hmuserEdit.do?id=191" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('beidayiyuan')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="even">
+                       <td class="sorting_1">bjsw2017</td>
+                       <td>施伟</td>
+                       <td>73D72BBB(华医国际健康管理有限公司)</td>
+                       <td><a href="hmuserEdit.do?id=39" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('bjsw2017')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="odd">
+                       <td class="sorting_1">332170158</td>
+                       <td>刘洋</td>
+                       <td>6C03C850(北京华普亿方有限公司)</td>
+                       <td><a href="hmuserEdit.do?id=141" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('332170158')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="even">
+                       <td class="sorting_1">90105136</td>
+                       <td>龚鹏媛</td>
+                       <td>EA5F3A45(医院)</td>
+                       <td><a href="hmuserEdit.do?id=197" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('90105136')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="odd">
+                       <td class="sorting_1">admin</td>
+                       <td>admin</td>
+                       <td>55852265(惠每健康管理中心)</td>
+                       <td><a href="hmuserEdit.do?id=1" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                   </tr>
+                   <tr role="row" class="even">
+                       <td class="sorting_1">baoji</td>
+                       <td>李琨</td>
+                       <td>2A95236D(惠每)</td>
+                       <td><a href="hmuserEdit.do?id=27" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('baoji')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="odd">
+                       <td class="sorting_1">beidayiyuan</td>
+                       <td>北</td>
+                       <td>ACD5C8E5(北京大学第一医院)</td>
+                       <td><a href="hmuserEdit.do?id=191" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('beidayiyuan')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="even">
+                       <td class="sorting_1">bjsw2017</td>
+                       <td>施伟</td>
+                       <td>73D72BBB(华医国际健康管理有限公司)</td>
+                       <td><a href="hmuserEdit.do?id=39" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('bjsw2017')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="odd">
+                       <td class="sorting_1">admin</td>
+                       <td>admin</td>
+                       <td>55852265(惠每健康管理中心)</td>
+                       <td><a href="hmuserEdit.do?id=1" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                   </tr>
+                   <tr role="row" class="even">
+                       <td class="sorting_1">baoji</td>
+                       <td>李琨</td>
+                       <td>2A95236D(惠每)</td>
+                       <td><a href="hmuserEdit.do?id=27" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('baoji')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="odd">
+                       <td class="sorting_1">beidayiyuan</td>
+                       <td>北</td>
+                       <td>ACD5C8E5(北京大学第一医院)</td>
+                       <td><a href="hmuserEdit.do?id=191" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('beidayiyuan')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   <tr role="row" class="even">
+                       <td class="sorting_1">bjsw2017</td>
+                       <td>施伟</td>
+                       <td>73D72BBB(华医国际健康管理有限公司)</td>
+                       <td><a href="hmuserEdit.do?id=39" target="_blank" nowrap="">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                               href="javascript:DELETE('bjsw2017')" target="_blank" nowrap="">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       </td>
+                   </tr>
+                   </tbody>
+
+
+               </table>
+           </div>
+
+        <div class="dataTables_info" id="mydatatable_info" role="status" aria-live="polite"></div>
+        <div class="dataTables_paginate paging_simple_numbers" id="mydatatable_paginate">
+
+            <a
+                class="paginate_button previous disabled" aria-controls="mydatatable" data-dt-idx="0" tabindex="0"
+                id="mydatatable_previous">上一页</a><span><a class="paginate_button current" aria-controls="mydatatable"
+                                                          data-dt-idx="1" tabindex="0">1</a><a class="paginate_button "
+                                                                                               aria-controls="mydatatable"
+                                                                                               data-dt-idx="2"
+                                                                                               tabindex="0">2</a><a
+                class="paginate_button " aria-controls="mydatatable" data-dt-idx="3" tabindex="0">3</a><a
+                class="paginate_button " aria-controls="mydatatable" data-dt-idx="4" tabindex="0">4</a><a
+                class="paginate_button " aria-controls="mydatatable" data-dt-idx="5" tabindex="0">5</a><span
+                class="ellipsis">…</span><a class="paginate_button " aria-controls="mydatatable" data-dt-idx="6"
+                                            tabindex="0">11</a></span><a class="paginate_button next"
+                                                                         aria-controls="mydatatable" data-dt-idx="7"
+                                                                         tabindex="0" id="mydatatable_next">下一页</a>
+            <div class="dataTables_length" id="mydatatable_length" style="float:left"><label>显示 <select name="mydatatable_length"
+                                                                                     aria-controls="mydatatable" class="">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select> 条</label></div>
+        </div>
+    </div>
+</form>
+
+
+<script type="text/javascript">
+    var table;
+    $(document).ready(function () {
+        table = $('#mydatatable').DataTable({
+            "bProcessing": true,
+            "bServerSide": true,
+            "bFilter": false,
+            "bLengthChange": true,
+            "iDisplayLength": 10,
+            "oLanguage": {                                 // 国际化配置
+                "sProcessing": "正在获取数据，请稍后...",
+                "sLengthMenu": "显示 _MENU_ 条",
+                "sZeroRecords": "没有您要的内容",
+                "sInfo": "",                   //从 _START_ 到  _END_ 条记录 总记录数为 _TOTAL_ 条
+                "sInfoEmpty": "",                   //记录数为0
+                "sInfoFiltered": "",                   //(全部记录数 _MAX_ 条)
+                "sInfoPostFix": "",
+                "sSearch": "搜索",
+                "sUrl": "",
+                "oPaginate": {
+                    "sFirst": "第一页",
+                    "sPrevious": "上一页",
+                    "sNext": "下一页",
+                    "sLast": "最后一页"
+                }
+            },
+            //设置url
+            "sAjaxSource": "hmuserListAjax.do",
+            "aoColumns": [
+                {'sTitle': '账号', "mData": 'loginname', "bVisible": true, sDefaultContent: ""},
+                {'sTitle': '姓名', "mData": 'username', "bVisible": true, sDefaultContent: ""},
+                {
+                    'sTitle': '诊所', "bVisible": true, sDefaultContent: "", "mRender": function (data, row, full) {
+                    return full.accesscode + "(" + full.custnname + ")";
+                }
+                },
+                {
+                    'sTitle': '操作',
+                    "mData": 'usermenu',
+                    "bVisible": true,
+                    sDefaultContent: "",
+                    "bSortable": false,
+                    "mRender": function (data, row, full) {
+                        var linkurl = '<a href="hmuserEdit.do?id=' + full.id + '" target="_blank" nowrap>编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;';
+                        if (full.userrole < 90 && "1" != full.id)
+                            linkurl += '<a href="javascript:DELETE(\'' + full.loginname + '\')" target="_blank" nowrap>删除</a>&nbsp;&nbsp;&nbsp;&nbsp;';
+                        return linkurl;
+                    }
+                }
+            ]
+        });
+
+        //查询
+        $("#searchButton").bind("click", function () {
+            var json = decodeURIComponent($("#form").serialize(), true);
+            json = encodeURI(json);
+            table.ajax.url("hmuserListAjax.do?" + json).load();
+            return false;
+        });
+        $('.select').searchableSelect();
+    });
+
+    function dateTimes(fmt) {
+        WdatePicker({dateFmt: fmt, isShowWeek: true});
+    }
+
+    function DELETE(LOGINNAME) {
+        if (confirm("确实要删除  (" + LOGINNAME + ") 数据 ?  ")) {
+            $.ajax({
+                type: "POST",
+                url: "hmuserDelete.do",
+                data: {loginname: LOGINNAME},
+                success: function (msg) {
+                    alert(msg);
+                    $("#searchButton").click();
+                }
+            });
+        }
+    }
+</script>
+<div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;">
+    <iframe style="width: 186px; height: 198px;"
+            src="http://amc.huimeicare.com/iamcadmin/resources/My97DatePicker/My97DatePicker.htm" frameborder="0"
+            border="0" scrolling="no"></iframe>
+</div>
+<script>
+    var height=$(window).height();
+    var boxwrapH=(height-50)+"px";
+    $("#box_wrap").css("height",boxwrapH)
+</script>
+</body>
+</html>

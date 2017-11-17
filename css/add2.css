@@ -1,0 +1,93 @@
+/*thead tr:nth-child(1){
+    box-sizing: border-box;
+    height: 50px;
+    background: #dcdcdc;
+}
+thead tr:nth-child(1) label{
+    font-weight: 100;
+    color: #666;
+}*/
+/*
+thead tr:nth-child(1) select,thead tr:nth-child(1) div,thead tr:nth-child(1) option,thead tr:nth-child(1) input{
+    box-sizing: border-box;
+    width: 150px;
+}
+.searchable-select-caret{
+    display: none;
+    height: 25px;
+}*/
+#box_wrap{
+    /*height: 590px;*/
+    background:#fff;
+    border-bottom:1px solid #dcdcdc;      overflow: auto
+}
+#search{
+   position: absolute;
+    top:0;
+    left: 0;
+    padding: 0 15px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #dcdcdc !important;
+    z-index: 120;
+}
+#search label{
+    color: rgb(26, 89, 140);
+}
+#search .group{
+    margin-right: 20px;
+    float: left;
+
+}
+#search .group span.sear{
+    margin-left: 10px;
+    padding: 0 20px;
+    height: 24px;
+    line-height: 24px;
+    color: #fff;
+    display: inline-block;
+    cursor: pointer;
+    background: rgb(26, 147, 211);
+}
+#search .group input,#search .group select{
+    box-sizing: border-box;
+    padding: 0 6px;
+    border: 1px solid rgb(26, 89, 140);
+    width: 120px;
+}
+#search .right{
+    float: right;
+}
+#search .right span{
+    padding: 0 20px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    display: inline-block;
+    cursor: pointer;
+}
+#search .right span.sear{
+    margin-right: 5px;
+
+}
+#search .right span.add{
+    background: #25a994;
+}
+/*修改原有页面*/
+.dataTables_wrapper{
+    position: inherit !important;
+}
+#mydatatable_length{
+    line-height: 40px;
+}
+table{
+    border-bottom: 1px solid #dcdcdc !important;
+    padding-top: 50px !important;
+}
+table thead{
+    position: absolute;
+    top:50px;
+    left: 0;
+}

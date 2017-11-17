@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    $(function(){
+        $('#edit').editable({inlineMode: false, alwaysBlank: true})
+    });
+    var height=$(window).height();
+    var boxwrapH=(height-60)+"px";
+    $(".agency_right").css("minHeight",boxwrapH);
+    /*  $(".agency_left p").click(function () {
+     $(this).addClass("on").siblings().removeClass("on");
+
+     })
+
+     $(".agency_left p.left_one").click(function () {
+     $(".right_one").fadeIn().siblings().fadeOut();
+
+     })*/
+    /* for (var i=0;i<$adiv.length;i++){
+     (function (index) {
+     console.log($($adiv[index]).data())
+     if($($adiv[index]).data()==num){
+     console.log(1)
+     $($adiv[index]).siblings().hide();
+     $($adiv[index]).show();
+     }
+     })(i)
+
+     }
+
+     )
+
+
+
+</script>
+</body>
+</html>
