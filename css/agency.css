@@ -53,15 +53,16 @@
  .btn{
     display: inline-block;
     margin-top: 10px;
+     border: 1px solid #60728c;
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 14px;
-    color: #fff;
-    background:#2b9dfa ;
-    background: rgb(26, 147, 211);
+    color: #60728c;
+     background:#eff2f6;
+   /* background: rgb(26, 147, 211);*/
 
      /*background: #ccc;*/
-    box-shadow: 1px 1px 5px rgba(0,0,0,.2);
+    box-shadow: 1px 0px 6px rgba(96,114,140,.2);
     cursor: pointer;
 }
  .btn_wrap.btn_other{
@@ -72,7 +73,7 @@
      margin-top: 15px;
  }
 .btn.delete{
-    background:#f99506;
+    background:#fff;
 }
 .add_btn{
     cursor: pointer;
@@ -86,7 +87,7 @@
 /*以上为公共样式*/
 /*智能问诊管理页面*/
 .wrap{
-   /* float: left;*/
+    float: left;
     margin-top: 10px;
 }
 .wrap.department{
